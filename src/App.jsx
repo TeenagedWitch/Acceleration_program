@@ -4,15 +4,12 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
+    <div>
       <h1>Hello this is ladning page.</h1>
-      <p>I have to make a new webpage for my acceleration.</p>
-    </>
+      <p>I have to make a new webpage</p>
+    </div>
   );
 }
 
 export default App;
-z;
