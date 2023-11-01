@@ -1,0 +1,17 @@
+.root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  /* background-color: black; */
+  border: solid white 2px;
+  font-family: rowdies;
+}
+
+/* fonts.module.css */
+@font-face {
+  font-family: "Rowdies";
+  src: url("../fonts/Rowdies-Bold.ttf") format("truetype"); /* Adjust the path and file name */
+  font-weight: 700;
+  font-style: normal;
+}
