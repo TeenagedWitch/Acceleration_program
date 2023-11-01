@@ -8,9 +8,11 @@ function App() {
 
   return (
     <>
-      <h1>Hello fat fuck</h1>
+      <h1>Hello this is ladning page.</h1>
+      <p>I have to make a new webpage for my acceleration.</p>
     </>
   );
 }
 
 export default App;
+z;
