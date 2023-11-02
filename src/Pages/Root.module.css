@@ -1,0 +1,8 @@
+.layout {
+  width: 100vw;
+}
+.mainContent {
+  max-width: 1280px;
+  border: 2px solid white;
+  margin: 0 auto;
+}

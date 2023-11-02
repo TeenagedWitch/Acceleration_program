@@ -1,15 +1,16 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Home.module.css";
+import logo from "../assets/pngegg1.png";
 
 const HomePage = () => {
   return (
     <div className={classes.landing}>
       <div className={classes.content}>
-        <img src="../assets/pngegg1.png" alt="" />
-        <h1>Get Started Today</h1>
+        <img className={classes.logo} src={logo} alt="" />
+        <h1 className={classes.contentTitle}>Get Started Today</h1>
         <NavLink to="/register">
-          <button>Get started</button>
+          <button className={classes.contentButton}>Get started</button>
         </NavLink>
       </div>
     </div>

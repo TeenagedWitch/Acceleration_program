@@ -1,0 +1,25 @@
+.navbar {
+  height: 121px;
+  border: 2px solid white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 65px;
+  padding-left: 65px;
+  font-size: 36px;
+  color: white;
+}
+.navbar ul {
+  display: flex;
+  gap: 65px;
+}
+.navbar ul li {
+  list-style: none;
+  text-decoration: none;
+}
+.userPicture {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: aquamarine;
+}

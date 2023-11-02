@@ -3,22 +3,28 @@
   padding: 0;
 }
 .landing {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-image: url("../assets/stars.png");
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .content {
-  border: 2px solid white;
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #4980c0;
-  font-size: 76px;
+  padding-top: 216px;
 }
-button {
+.logo {
+  width: 164px;
+}
+.contentTitle {
+  padding-top: 99px;
+  color: #4980c0;
+  font-size: 96px;
+}
+.contentButton {
+  margin-top: 99px;
   width: 395px;
   height: 79px;
   background-color: #4980c0;
@@ -26,6 +32,7 @@ button {
   font-size: 24px;
   border-radius: 7px;
 }
+
 @font-face {
   font-family: "Rowdies";
   src: url("./fonts/Rowdies-Bold.ttf") format("truetype"); /* Adjust the path and file name */
