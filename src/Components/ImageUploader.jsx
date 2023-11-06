@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 
-import classes from "./ImageUPloader.module.css";
+import classes from "./ImageUploader.module.css";
 import logo from "../assets/add_a_photo.png";
 const ImageLocalStorage = () => {
   const [image, setImage] = useState("");
