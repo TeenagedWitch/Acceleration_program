@@ -32,13 +32,3 @@
   font-size: 24px;
   border-radius: 7px;
 }
-
-@font-face {
-  font-family: "Rowdies";
-  src: url("./fonts/Rowdies-Bold.ttf") format("truetype"); /* Adjust the path and file name */
-  font-weight: 700;
-  font-style: normal;
-}
-body {
-  font-family: "Rowdies", sans-serif; /* Use the 'Rowdies' font with a fallback font */
-}

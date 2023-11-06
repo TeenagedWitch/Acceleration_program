@@ -1,0 +1,12 @@
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.pagination {
+  margin: auto;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: center;
+}
