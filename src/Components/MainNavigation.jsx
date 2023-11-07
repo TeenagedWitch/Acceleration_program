@@ -11,7 +11,6 @@ const MainNavigation = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [image, setImage] = useState("");
-  const fileInputRef = useRef(null);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
@@ -23,26 +22,8 @@ const MainNavigation = () => {
     }
   };
 
-  const handleImageClick = () => {
-    fileInputRef.current.click();
-  };
-
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result.split(",")[1];
-        localStorage.setItem("savedImage", base64String);
-        setImage(`data:image/png;base64,${base64String}`);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   useEffect(() => {
     loadImage();
-    console.log("Image has been set");
   }, []);
 
   return (
@@ -54,24 +35,16 @@ const MainNavigation = () => {
         </div>
         <ul className={classes.navProfile}>
           <li>
-            <button onClick={openModal} className={classes.modalButton}>
-              {userName}
-            </button>
-            <Modal isOpen={isModalOpen} onClose={closeModal} />
+            <h1 className={classes.modalButton}>{userName}</h1>
           </li>
           <li>
             <img
               src={image}
               alt="Uploaded"
               className={classes.userPicture}
-              onClick={handleImageClick}
+              onClick={openModal}
             />
-            <input
-              type="file"
-              ref={fileInputRef}
-              style={{ display: "none" }}
-              onChange={handleFileChange}
-            />
+            <Modal isOpen={isModalOpen} onClose={closeModal} />
           </li>
         </ul>
       </nav>

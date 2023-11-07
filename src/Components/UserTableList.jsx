@@ -6,6 +6,7 @@ import "primereact/resources/primereact.min.css";
 import classes from "./UserTableList.module.css";
 import filterLogo from "../assets/filter-svg.png";
 import arrowLogo from "../assets/chevron-right.png";
+import searchLogo from "../assets/search.png";
 
 const UserTableList = ({ dummyData }) => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -17,12 +18,18 @@ const UserTableList = ({ dummyData }) => {
   const [showGender, setShowGender] = useState(false);
   const [showStatus, setShowStatus] = useState(false);
 
+  const isGenderFilterActive = femaleChecker || maleChecker;
+
+  const isStatusFilterActive = activeChecker || inactiveChecker;
+
   const filteredData = dummyData.filter((item) => {
     const genderMatch =
+      !isGenderFilterActive ||
       (femaleChecker && item.sex === "Female") ||
       (maleChecker && item.sex === "Male");
 
     const statusMatch =
+      !isStatusFilterActive ||
       (activeChecker && item.status === "Active") ||
       (inactiveChecker && item.status === "Inactive");
 
@@ -141,10 +148,17 @@ const UserTableList = ({ dummyData }) => {
             className={classes.filterButton}
             onClick={filterVisibilityHandler}
           >
-            <img src={filterLogo} alt="" />
-            <p>Filter</p>
+            <img src={filterLogo} className={classes.filterLogo} alt="" />
+            <p>filter</p>
           </button>
-          <input type="text" />
+          <div>
+            <img src={searchLogo} alt="" className={classes.searchLogo} />
+            <input
+              type="text"
+              className={classes.searchInput}
+              placeholder="search"
+            />
+          </div>
         </div>
         <DataTable
           value={filteredData}
@@ -153,12 +167,20 @@ const UserTableList = ({ dummyData }) => {
           rowsPerPageOptions={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
           totalRecords={dummyData.length}
           className={classes.table}
+          tableStyle={{}}
         >
           <Column className={classes.column} field="name" header="NAME" />
           <Column className={classes.column} field="status" header="Status" />
           <Column className={classes.column} field="sex" header="Sex" />
           <Column className={classes.column} field="scores" header="Score" />
           <Column className={classes.column} field="idNumber" header="ID" />
+          <Column className={classes.column} field="email" header="Mail" />
+          <Column
+            className={classes.column}
+            field="phoneNumber"
+            header="Phone"
+          />
+          <Column className={classes.column} field="birthdate" header="Birth" />
         </DataTable>
       </div>
     </div>

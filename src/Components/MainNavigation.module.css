@@ -42,8 +42,6 @@
   align-items: center;
 }
 .modalButton {
-  background-color: transparent;
   border: none;
-  color: white;
   font-size: 36px;
 }

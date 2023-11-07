@@ -1,8 +1,9 @@
 .formSideMenu {
   position: absolute;
-  left: 4%;
-  top: 26.5%;
+  left: 3%;
+  top: 25.7%;
 }
+
 .tableConfigurator {
   display: flex;
   justify-content: space-between;
@@ -14,19 +15,25 @@
   width: 160px;
   height: 50px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: white;
   padding: 15px;
 }
+.filterButton p {
+  margin-right: 37px;
+}
 .tableConfigurator input {
-  width: 220px;
-  height: 33px;
+  width: 240px;
+  height: 36px;
   border-radius: 8px;
+  padding-left: 35px;
+  padding-right: 35px;
+  font-size: 16px;
 }
 .filter {
-  width: 220px;
-  height: 160px;
+  width: 230px;
+  height: 220px;
   background-color: white;
   border-radius: 6px;
 }
@@ -40,7 +47,6 @@
 .column {
   padding-top: 15px;
   padding-bottom: 15px;
-  padding-left: 15px;
 }
 .filterContainer {
   width: 100%;
@@ -89,4 +95,9 @@
 .filterOptions {
   align-items: center;
   display: flex;
+}
+.searchLogo {
+  position: absolute;
+  right: 27.4%;
+  top: 17.8%;
 }
