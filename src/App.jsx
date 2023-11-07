@@ -23,9 +23,9 @@ const router = createBrowserRouter([
       {
         path: "/form",
         element: (
-          // <RequireAuth>
-          <FormPage />
-          // </RequireAuth>
+          <RequireAuth>
+            <FormPage />
+          </RequireAuth>
         ),
       },
       {
