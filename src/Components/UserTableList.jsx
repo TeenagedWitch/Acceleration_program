@@ -186,7 +186,7 @@ const UserTableList = ({ dummyData }) => {
         >
           <Column className={classes.column} field="name" header="NAME" />
           <Column className={classes.column} field="status" header="Status" />
-          <Column className={classes.column} field="sex" header="Sex" />
+          <Column className={classes.column} field="sex" header="Gender" />
           <Column className={classes.column} field="scores" header="Score" />
           <Column className={classes.column} field="idNumber" header="ID" />
           <Column className={classes.column} field="email" header="Mail" />
