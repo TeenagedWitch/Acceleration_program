@@ -1,8 +1,7 @@
 import React, { useState, useRef } from "react";
 
 import classes from "./ImageUploader.module.css";
-import logo from "../assets/add_a_photo.png";
-const ImageLocalStorage = () => {
+const ImageLocalStorage = ({ enteredImg, setEnteredImg }) => {
   const [image, setImage] = useState("");
   const imageInputRef = useRef();
 
@@ -20,6 +19,7 @@ const ImageLocalStorage = () => {
       };
       reader.readAsDataURL(file);
     }
+    setEnteredImg(true);
   };
   const handleImageClick = () => {
     imageInputRef.current.click();

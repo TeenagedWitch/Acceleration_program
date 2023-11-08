@@ -6,7 +6,7 @@
 .paginationContainerButton {
   width: 30px;
   height: 30px;
-  font-size: 25px;
+  font-size: 22px;
   background: none;
   color: white;
   border-bottom: 1px solid white;
@@ -18,14 +18,17 @@
   transition: 0.2s;
 }
 .paginationContainerButton:hover {
-  text-decoration: underline;
+  font-size: 27px;
 }
 
 .paginationContainerButton.active {
-  font-size: 33px;
+  font-size: 27px;
   text-decoration: underline;
 }
 .arrowContainer {
   display: flex;
-  align-items: center;
+  padding-top: 7px;
+}
+.arrowContainer img {
+  width: 22px;
 }

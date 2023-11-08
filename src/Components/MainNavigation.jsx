@@ -35,7 +35,7 @@ const MainNavigation = () => {
         </div>
         <ul className={classes.navProfile}>
           <li>
-            <h1 className={classes.modalButton}>{userName}</h1>
+            <h1 className={classes.userName}>{userName}</h1>
           </li>
           <li>
             <img

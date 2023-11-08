@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-right: 65px;
   padding-left: 65px;
   font-size: 36px;
   color: white;
@@ -34,14 +33,16 @@
   align-items: center;
   width: 80%;
   border-right: 1px solid white;
-  padding-right: 50px;
+  padding-right: 40px;
 }
 .navProfile {
   height: 100%;
+  width: 330px;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-.modalButton {
+.userName {
   border: none;
-  font-size: 36px;
+  font-size: 35px;
 }

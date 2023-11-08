@@ -14,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   padding-top: 216px;
+  align-items: center;
 }
 .logo {
   width: 164px;
@@ -30,5 +31,9 @@
   background-color: #4980c0;
   color: white;
   font-size: 24px;
+  border: none;
   border-radius: 7px;
+}
+.contentButton:hover {
+  background-color: #7da0c7;
 }

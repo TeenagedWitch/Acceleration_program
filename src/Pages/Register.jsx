@@ -8,7 +8,7 @@ import ImageLocalStorage from "../Components/ImageUploader.jsx";
 function App() {
   const navigate = useNavigate();
   const [enteredName, setEnteredName] = useState("");
-  const [enteredImg, setEnterdImg] = useState(null);
+  const [enteredImg, setEnteredImg] = useState(false);
   const userCtx = useContext(UserContext);
   const userAuth = userCtx.isAuthenticated;
 
@@ -44,7 +44,10 @@ function App() {
     <form className={classes.register}>
       <h1>Get Started</h1>
       <p className={classes.registerAddPhoto}>Add a photo</p>
-      <ImageLocalStorage />
+      <ImageLocalStorage
+        setEnteredImg={setEnteredImg}
+        enteredImg={enteredImg}
+      />
       <label htmlFor="name">Fill in your name</label>
       <input
         type="text"
@@ -57,8 +60,10 @@ function App() {
       <button
         type="submit"
         onClick={handleOnSubmit}
-        className={classes.signIn}
-        disabled={enteredName.length === 0}
+        className={`${classes.signIn} ${
+          enteredName.length == 0 || enteredImg == false ? classes.disabled : ""
+        }`}
+        disabled={enteredName.length == 0 || enteredImg == false}
       >
         Sign in
       </button>

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
+
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 import classes from "./UserTableList.module.css";
@@ -9,8 +8,11 @@ import arrowLogo from "../assets/chevron-right.png";
 import searchLogo from "../assets/search.png";
 import Pagination from "./Pagination";
 
+import DataTable from "./DataTable";
+
 const UserTableList = ({ dummyData }) => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
 
   const [femaleChecker, setFemaleChecker] = useState(true);
   const [maleChecker, setMaleChecker] = useState(true);
@@ -41,7 +43,6 @@ const UserTableList = ({ dummyData }) => {
   const rowsPerPage = 7;
 
   const totalRecords = filteredData.length;
-  const totalPages = Math.ceil(totalRecords / rowsPerPage);
 
   const startIndex = (currentPage - 1) * rowsPerPage;
   const endIndex = startIndex + rowsPerPage;
@@ -89,13 +90,47 @@ const UserTableList = ({ dummyData }) => {
           {/* FILTERING SIDEBAR */}
           <div className={classes.filterContainer}>
             <div>
+              <div>
+                <div className={classes.filterOptions}>
+                  <img src={arrowLogo} alt="statusArrow" />
+                  <a
+                    className={classes.clickStatus}
+                    onClick={statusOnclickHandler}
+                  >
+                    სტუდენტის სტატუსი
+                  </a>
+                </div>
+
+                <div
+                  className={`${
+                    showStatus ? classes.statusFilter : classes.statusFilterDis
+                  }`}
+                >
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={activeChecker}
+                      onChange={handleActiveCheck}
+                    />
+                    Active
+                  </label>
+                  <label>
+                    <input
+                      type="checkbox"
+                      checked={inactiveChecker}
+                      onChange={handleInactiveCheck}
+                    />
+                    Inactive
+                  </label>
+                </div>
+              </div>
               <div className={classes.filterOptions}>
                 <img src={arrowLogo} alt="statusArrow" />
                 <a
                   className={classes.clickGender}
                   onClick={genderOnclickHandler}
                 >
-                  Gender
+                  სქესი
                 </a>
               </div>
               <div
@@ -121,40 +156,6 @@ const UserTableList = ({ dummyData }) => {
                 </label>
               </div>
             </div>
-            <div>
-              <div className={classes.filterOptions}>
-                <img src={arrowLogo} alt="statusArrow" />
-                <a
-                  className={classes.clickStatus}
-                  onClick={statusOnclickHandler}
-                >
-                  Status
-                </a>
-              </div>
-
-              <div
-                className={`${
-                  showStatus ? classes.statusFilter : classes.statusFilterDis
-                }`}
-              >
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={activeChecker}
-                    onChange={handleActiveCheck}
-                  />
-                  Active
-                </label>
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={inactiveChecker}
-                    onChange={handleInactiveCheck}
-                  />
-                  Inactive
-                </label>
-              </div>
-            </div>
           </div>
           {/* END OF SIDEBAR */}
         </div>
@@ -177,27 +178,7 @@ const UserTableList = ({ dummyData }) => {
             />
           </div>
         </div>
-        <DataTable
-          value={visibleData}
-          rows={rowsPerPage}
-          totalRecords={totalRecords}
-          paginatorTemplate={Pagination}
-          className={classes.table}
-        >
-          <Column className={classes.column} field="name" header="NAME" />
-          <Column className={classes.column} field="status" header="Status" />
-          <Column className={classes.column} field="sex" header="Gender" />
-          <Column className={classes.column} field="scores" header="Score" />
-          <Column className={classes.column} field="idNumber" header="ID" />
-          <Column className={classes.column} field="email" header="Mail" />
-          <Column
-            className={classes.column}
-            field="phoneNumber"
-            header="Phone"
-          />
-          <Column className={classes.column} field="birthdate" header="Birth" />
-        </DataTable>
-
+        <DataTable data={visibleData} />
         <div className={classes.tablePagination}>
           <Pagination
             totalPosts={totalRecords}

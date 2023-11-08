@@ -26,7 +26,7 @@ const ApiPage = () => {
       <div className={classes.cardsContainer}>
         {currentPosts ? (
           currentPosts.map((card, index) => (
-            <Card title={card.title} key={index} body={card.body} />
+            <Card title={card.id} key={index} body={card.body} />
           ))
         ) : (
           <p>Loading... </p>
