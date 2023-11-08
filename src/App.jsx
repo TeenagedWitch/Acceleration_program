@@ -1,4 +1,5 @@
 import classes from "./App.module.css";
+import ErrorPage from "./Pages/ErrorPage";
 import {
   createBrowserRouter,
   Navigate,
@@ -14,7 +15,7 @@ import RootLayout from "./Pages/Root";
 import { UserContext } from "./user-context/user-info";
 
 const router = createBrowserRouter([
-  { path: "/", element: <HomePage /> },
+  { path: "/", element: <HomePage />, errorElement: <ErrorPage /> },
   { path: "/register", element: <Register /> },
   {
     path: "/",
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
           </RequireAuth>
         ),
       },
+      // {
+      //   path: "*",
+      //   element: <ErrorPage />,
+      // },
     ],
   },
 ]);
