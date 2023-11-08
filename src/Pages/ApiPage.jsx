@@ -21,13 +21,12 @@ const ApiPage = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  // console.log(cardData);
   return (
     <div>
       <div className={classes.cardsContainer}>
         {currentPosts ? (
-          currentPosts.map((card) => (
-            <Card title={card.title} body={card.body} />
+          currentPosts.map((card, index) => (
+            <Card title={card.title} key={index} body={card.body} />
           ))
         ) : (
           <p>Loading... </p>

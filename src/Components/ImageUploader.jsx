@@ -25,7 +25,7 @@ const ImageLocalStorage = () => {
     imageInputRef.current.click();
   };
   const handleImageReChange = () => {
-    console.log("rechange");
+    imageInputRef.current.click();
   };
 
   return (
@@ -39,17 +39,25 @@ const ImageLocalStorage = () => {
             className={classes.invisibleInput}
             onChange={handleImageChange}
             ref={imageInputRef}
-          ></input>
+          />
         </>
       )}
 
-      {/* <button onClick={loadImage}>Load from Local Storage</button> */}
-
       {image && (
         <>
-          <a onClick={handleImageReChange}>
-            <img src={image} alt="Uploaded" className={classes.pfpCircle} />
-          </a>
+          <img
+            src={image}
+            alt="Uploaded"
+            onClick={handleImageReChange}
+            className={classes.pfpCircle}
+          />
+          <input
+            type="file"
+            id="file-input"
+            className={classes.invisibleInput}
+            onChange={handleImageChange}
+            ref={imageInputRef}
+          />
         </>
       )}
     </div>

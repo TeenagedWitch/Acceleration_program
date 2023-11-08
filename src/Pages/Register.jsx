@@ -12,7 +12,6 @@ function App() {
   const userCtx = useContext(UserContext);
   const userAuth = userCtx.isAuthenticated;
 
-  // Retrieve user data from localStorage on app startup
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
     const isAuthenticated = localStorage.getItem("isAuthenticated");
@@ -23,8 +22,6 @@ function App() {
     }
   }, [userCtx]);
 
-  console.log(enteredImg);
-
   const handleNameInputChange = (e) => {
     setEnteredName(e.target.value);
   };
@@ -33,15 +30,12 @@ function App() {
     e.preventDefault();
 
     if (!userAuth && enteredName.trim() !== "") {
-      // Update the user context
       userCtx.username.push(enteredName);
       userCtx.isAuthenticated = true;
 
-      // Store user data in localStorage
       localStorage.setItem("username", enteredName);
       localStorage.setItem("isAuthenticated", "true");
 
-      // Redirect to the desired page
       navigate("/form");
     }
   };

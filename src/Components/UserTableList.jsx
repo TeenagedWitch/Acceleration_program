@@ -7,6 +7,7 @@ import classes from "./UserTableList.module.css";
 import filterLogo from "../assets/filter-svg.png";
 import arrowLogo from "../assets/chevron-right.png";
 import searchLogo from "../assets/search.png";
+import Pagination from "./Pagination";
 
 const UserTableList = ({ dummyData }) => {
   const [isFilterVisible, setIsFilterVisible] = useState(false);
@@ -24,17 +25,32 @@ const UserTableList = ({ dummyData }) => {
 
   const filteredData = dummyData.filter((item) => {
     const genderMatch =
-      !isGenderFilterActive ||
+      (!femaleChecker && !maleChecker) ||
       (femaleChecker && item.sex === "Female") ||
       (maleChecker && item.sex === "Male");
 
     const statusMatch =
-      !isStatusFilterActive ||
+      (!activeChecker && !inactiveChecker) ||
       (activeChecker && item.status === "Active") ||
       (inactiveChecker && item.status === "Inactive");
 
     return genderMatch && statusMatch;
   });
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 7;
+
+  const totalRecords = filteredData.length;
+  const totalPages = Math.ceil(totalRecords / rowsPerPage);
+
+  const startIndex = (currentPage - 1) * rowsPerPage;
+  const endIndex = startIndex + rowsPerPage;
+
+  const visibleData = filteredData.slice(startIndex, endIndex);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   const handleFemaleCheck = () => {
     setFemaleChecker(!femaleChecker);
@@ -140,6 +156,7 @@ const UserTableList = ({ dummyData }) => {
               </div>
             </div>
           </div>
+          {/* END OF SIDEBAR */}
         </div>
       </div>
       <div className={classes.formMainContent}>
@@ -161,13 +178,11 @@ const UserTableList = ({ dummyData }) => {
           </div>
         </div>
         <DataTable
-          value={filteredData}
-          paginator
-          rows={1}
-          rowsPerPageOptions={[1, 2, 3, 4, 5, 6, 7, 8, 9]}
-          totalRecords={dummyData.length}
+          value={visibleData}
+          rows={rowsPerPage}
+          totalRecords={totalRecords}
+          paginatorTemplate={Pagination}
           className={classes.table}
-          tableStyle={{}}
         >
           <Column className={classes.column} field="name" header="NAME" />
           <Column className={classes.column} field="status" header="Status" />
@@ -182,6 +197,15 @@ const UserTableList = ({ dummyData }) => {
           />
           <Column className={classes.column} field="birthdate" header="Birth" />
         </DataTable>
+
+        <div className={classes.tablePagination}>
+          <Pagination
+            totalPosts={totalRecords}
+            postsPerPage={rowsPerPage}
+            setCurrentPage={handlePageChange}
+            currentPage={currentPage}
+          />
+        </div>
       </div>
     </div>
   );

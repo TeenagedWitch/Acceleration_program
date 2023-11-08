@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import classes from "./Modal.module.css"; // Create a CSS file for styling
+import classes from "./Modal.module.css";
 import { UserContext } from "../user-context/user-info";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/close.png";

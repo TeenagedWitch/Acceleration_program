@@ -8,6 +8,7 @@
   display: flex;
   background-repeat: no-repeat, repeat;
   background-position: center;
+  cursor: pointer;
 }
 .imgLoader {
   width: 200px;
@@ -22,7 +23,6 @@
   background-color: #e6ebff;
   margin-bottom: 43px;
   margin-top: 43px;
-  cursor: pointer;
 }
 .invisibleInput {
   display: none;
